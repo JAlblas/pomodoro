@@ -5,13 +5,15 @@ import logo from './logo.svg';
 import './App.css';
 
 import { simpleAction } from './actions/simpleAction';
+import { toggleTimerAction } from './actions/toggleTimerAction';
 
 const mapStateToProps = state => ({
  ...state
 })
 
 const mapDispatchToProps = dispatch => ({
- simpleAction: () => dispatch(simpleAction())
+ simpleAction: () => dispatch(simpleAction()),
+ toggleTimerAction: () => dispatch(toggleTimerAction())
 })
 
 class App extends Component {
@@ -30,12 +32,14 @@ class App extends Component {
      To get started, edit <code>src/App.js</code> and save to reload
     </p>
     <button onClick={this.simpleAction}>Test redux action</button>
-
+    <button onClick={this.props.toggleTimerAction}>toggle TIMER</button>
     <pre>
      {
       JSON.stringify(this.props)
      }
     </pre>
+
+    <p>TEST: {JSON.stringify(this.props.toggleTimerReducer.runningTimer)}</p>
 
    </div>
   );
