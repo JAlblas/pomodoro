@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import logo from './logo.svg';
+import Timer from './Timer.js';
+import ConfigSection from './ConfigSection';
+
+import logo from './../logo.svg';
 import './App.css';
 
-import { simpleAction } from './actions/simpleAction';
-import { toggleTimerAction } from './actions/toggleTimerAction';
+import { toggleTimerAction } from './../actions/toggleTimerAction';
 
 const mapStateToProps = state => ({
  ...state
+ //toggleTimer": state.toggleTimerReducer.runningTimer
 })
 
 const mapDispatchToProps = dispatch => ({
- simpleAction: () => dispatch(simpleAction()),
  toggleTimerAction: () => dispatch(toggleTimerAction())
 })
 
@@ -24,22 +26,17 @@ class App extends Component {
  render() {
   return (
    <div className="App">
-    <header className="App-header">
-     <img src={logo} className="App-logo" alt="logo" />
-     <h1 className="App-title">Welcome to React</h1>
-    </header>
-    <p className="App-intro">
-     To get started, edit <code>src/App.js</code> and save to reload
-    </p>
-    <button onClick={this.simpleAction}>Test redux action</button>
+    <h1>Pomodoro clock</h1>
+    <Timer runningTimer={this.props.toggleTimer.runningTimer}/>
     <button onClick={this.props.toggleTimerAction}>toggle TIMER</button>
+    <ConfigSection />
     <pre>
      {
       JSON.stringify(this.props)
      }
     </pre>
 
-    <p>TEST: {JSON.stringify(this.props.toggleTimerReducer.runningTimer)}</p>
+    <p>TEST: {JSON.stringify(this.props.toggleTimer.runningTimer)}</p>
 
    </div>
   );

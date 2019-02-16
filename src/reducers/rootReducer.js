@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import simpleReducer from './simpleReducer';
+
 import toggleTimerReducer from './toggleTimerReducer';
+import sessionReducer from './sessionReducer';
 
 export default combineReducers({
- simpleReducer,
- toggleTimerReducer
+ "toggleTimer": toggleTimerReducer,
+ "session": sessionReducer
 });
