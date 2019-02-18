@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import Timer from './Timer.js';
 import ConfigSection from './ConfigSection';
 
-import logo from './../logo.svg';
 import './App.css';
 
-import { toggleTimerAction } from './../actions/toggleTimerAction';
+import { toggleTimerAction, resetAction } from './../actions/timerControl';
 
 const mapStateToProps = state => ({
  ...state
@@ -15,7 +14,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
- toggleTimerAction: () => dispatch(toggleTimerAction())
+ toggleTimerAction: () => dispatch(toggleTimerAction()),
+ resetAction: () => dispatch(resetAction())
 })
 
 class App extends Component {
@@ -28,14 +28,9 @@ class App extends Component {
    <div className="App">
     <h1>Pomodoro clock</h1>
     <Timer runningTimer={this.props.toggleTimer.runningTimer}/>
-    <button onClick={this.props.toggleTimerAction}>toggle TIMER</button>
     <ConfigSection />
-    <pre>
-     {
-      JSON.stringify(this.props)
-     }
-    </pre>
-
+    <button id="start_stop" onClick={this.props.toggleTimerAction}>Start/stop timer</button>
+    <button id="reset" onClick={this.props.resetAction}>Reset timer</button>
     <p>TEST: {JSON.stringify(this.props.toggleTimer.runningTimer)}</p>
 
    </div>

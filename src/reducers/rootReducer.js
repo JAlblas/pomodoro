@@ -1,9 +1,21 @@
 import { combineReducers } from 'redux';
 
-import toggleTimerReducer from './toggleTimerReducer';
+import toggleTimerReducer from './timerControlReducer';
 import sessionReducer from './sessionReducer';
+import breakReducer from './breakReducer';
 
-export default combineReducers({
+const appReducer = combineReducers({
  "toggleTimer": toggleTimerReducer,
- "session": sessionReducer
+ "session": sessionReducer,
+ "break": breakReducer
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === 'RESET') {
+    console.log("RESET ROOT");
+    state = undefined
+  }
+  return appReducer(state, action)
+};
+
+export default rootReducer;

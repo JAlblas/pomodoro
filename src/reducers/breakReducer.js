@@ -1,23 +1,22 @@
 const initialState = {
-  session: 25
+  break: 5
 };
 
 export default (state = initialState, action) => {
    console.log(action.type);
    switch (action.type) {
-
-    case 'INCREMENT_SESSION':
-      if (state.session < 60) {
+    case 'INCREMENT_BREAK':
+      if (state.break < 60) {
         return Object.assign({}, state, {
-          session: state.session += 1
+          break: state.break += 1
         });
       } else {
         return state;
       }
-    case 'DECREMENT_SESSION':
-      if (state.session > 1) {
+    case 'DECREMENT_BREAK':
+      if (state.break > 1) {
         return Object.assign({}, state, {
-          session: state.session -= 1
+          break: state.break -= 1
         });
       } else {
         return state;

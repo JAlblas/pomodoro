@@ -12,12 +12,10 @@ class Timer extends Component {
 
  render() {
   return (
-      <div className="row mt-5">
-        <div className="col-md-4 offset-md-1">
-          <h2>{JSON.stringify(this.props.toggleTimer)}</h2>
-          <a href="#">{this.props.toggleTimer}</a>
-          <p>New: {this.props.toggleTimer}</p>
-        </div>
+      <div className="timer-section">
+          <h2 id="timer-label">Session</h2>
+          <p id="time-left"></p>
+          <h3>{JSON.stringify(this.props.toggleTimer)}</h3>
       </div>
     );
  }
