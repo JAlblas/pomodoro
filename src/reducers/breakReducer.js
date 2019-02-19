@@ -3,12 +3,11 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-   console.log(action.type);
    switch (action.type) {
     case 'INCREMENT_BREAK':
       if (state.break < 60) {
         return Object.assign({}, state, {
-          break: state.break += 1
+          break: state.break + 1
         });
       } else {
         return state;
@@ -16,7 +15,7 @@ export default (state = initialState, action) => {
     case 'DECREMENT_BREAK':
       if (state.break > 1) {
         return Object.assign({}, state, {
-          break: state.break -= 1
+          break: state.break - 1
         });
       } else {
         return state;

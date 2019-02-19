@@ -5,14 +5,13 @@ import sessionReducer from './sessionReducer';
 import breakReducer from './breakReducer';
 
 const appReducer = combineReducers({
- "toggleTimer": toggleTimerReducer,
+ "timer": toggleTimerReducer,
  "session": sessionReducer,
  "break": breakReducer
 });
 
 const rootReducer = (state, action) => {
   if (action.type === 'RESET') {
-    console.log("RESET ROOT");
     state = undefined
   }
   return appReducer(state, action)

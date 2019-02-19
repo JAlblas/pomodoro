@@ -3,13 +3,11 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-   console.log(action.type);
    switch (action.type) {
-
     case 'INCREMENT_SESSION':
       if (state.session < 60) {
         return Object.assign({}, state, {
-          session: state.session += 1
+          session: state.session + 1
         });
       } else {
         return state;
@@ -17,7 +15,7 @@ export default (state = initialState, action) => {
     case 'DECREMENT_SESSION':
       if (state.session > 1) {
         return Object.assign({}, state, {
-          session: state.session -= 1
+          session: state.session - 1
         });
       } else {
         return state;

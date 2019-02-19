@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-   "toggleTimer": state.toggleTimer.runningTimer
+   "toggleTimer": state.timer.runningTimer
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -14,8 +14,7 @@ class Timer extends Component {
   return (
       <div className="timer-section">
           <h2 id="timer-label">Session</h2>
-          <p id="time-left"></p>
-          <h3>{JSON.stringify(this.props.toggleTimer)}</h3>
+          <p id="time-left">01:00</p>
       </div>
     );
  }
