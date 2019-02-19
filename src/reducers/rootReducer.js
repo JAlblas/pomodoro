@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import toggleTimerReducer from './timerControlReducer';
+import toggleTimerReducer from './timerReducer';
 import sessionReducer from './sessionReducer';
 import breakReducer from './breakReducer';
 

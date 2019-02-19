@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 
 import Timer from './Timer.js';
 import ConfigSection from './ConfigSection';
+import ButtonSection from './ButtonSection';
 
 import './App.css';
 
-import { toggleTimerAction, resetAction } from './../actions/timerControl';
+
 
 const mapStateToProps = state => ({
  ...state
@@ -14,8 +15,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
- toggleTimerAction: () => dispatch(toggleTimerAction()),
- resetAction: () => dispatch(resetAction())
 })
 
 class App extends Component {
@@ -24,13 +23,12 @@ class App extends Component {
   return (
    <div className="App">
     <h1>Pomodoro clock</h1>
-    <Timer runningTimer={this.props.timer.runningTimer}/>
+    <Timer />
     <ConfigSection />
-    <button id="start_stop" onClick={this.props.toggleTimerAction}>Start/stop timer</button>
-    <button id="reset" onClick={this.props.resetAction}>Reset timer</button>
+    <ButtonSection />
     <h3>{JSON.stringify(this.props)}</h3>
    </div>
   );
  }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
