@@ -1,7 +1,13 @@
 const initialState = {
   runningTimer: false,
-  timeLeft: 0,
-  startDate: Date()
+  timeLeft: {
+      days: 0,
+      hours: 0,
+      min: 0,
+      sec: 0,
+  },
+  timeMode: "session",
+  startDate: null
 };
 
 export default (state = initialState, action) => {
@@ -9,7 +15,7 @@ export default (state = initialState, action) => {
     case 'START_TIMER':
       return {
         ...state,
-        timeLeft: 0,
+        timeLeft: action.time,
         runningTimer: true
       };
     case 'STOP_TIMER':
@@ -17,9 +23,12 @@ export default (state = initialState, action) => {
         ...state,
         runningTimer: false
       };
-    case 'TIMER_TICK':
-      return state;
+    case 'UPDATE_TIMER':
+      return {
+        ...state,
+        timeLeft: action.time
+      };
     default:
-     return state
+      return state;
    }
 }

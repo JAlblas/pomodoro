@@ -1,4 +1,4 @@
-export const startTimerAction = () => {
+export const startTimerAction = (time) => {
   return {
     type: 'START_TIMER'
  }
@@ -7,6 +7,13 @@ export const startTimerAction = () => {
 export const stopTimerAction = () => {
   return {
     type: 'STOP_TIMER'
+ }
+}
+
+export const updateTimerAction = (time) => {
+  return {
+    type: 'UPDATE_TIMER',
+    time: time
  }
 }
 

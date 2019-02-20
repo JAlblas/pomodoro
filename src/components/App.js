@@ -7,14 +7,8 @@ import ButtonSection from './ButtonSection';
 
 import './App.css';
 
-
-
 const mapStateToProps = state => ({
  ...state
- //toggleTimer": state.toggleTimerReducer.runningTimer
-})
-
-const mapDispatchToProps = dispatch => ({
 })
 
 class App extends Component {
