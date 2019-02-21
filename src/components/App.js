@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Timer from './Timer.js';
 import ConfigSection from './ConfigSection';
-import ButtonSection from './ButtonSection';
+import StartStopSection from './StartStopSection';
 
 import './App.css';
 
@@ -18,8 +18,8 @@ class App extends Component {
    <div className="App">
     <h1>Pomodoro clock</h1>
     <Timer />
+    <StartStopSection />
     <ConfigSection />
-    <ButtonSection />
     <h3>{JSON.stringify(this.props)}</h3>
    </div>
   );

@@ -1,8 +1,8 @@
-export const startTimerAction = (time) => {
-  return {
-    type: 'START_TIMER'
- }
-}
+export const startTimerAction = (session_type) =>
+  (dispatch, getState) => {
+    const time = getState().session.session * 60;
+    dispatch({ type: 'START_TIMER', time: time });
+  };
 
 export const stopTimerAction = () => {
   return {

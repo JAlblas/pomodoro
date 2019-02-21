@@ -1,18 +1,13 @@
 const initialState = {
   runningTimer: false,
-  timeLeft: {
-      days: 0,
-      hours: 0,
-      min: 0,
-      sec: 0,
-  },
-  timeMode: "session",
-  startDate: null
+  timeLeft: 1500,
+  timeMode: "session"
 };
 
 export default (state = initialState, action) => {
    switch (action.type) {
     case 'START_TIMER':
+      console.log("START_TIME:" + action.time)
       return {
         ...state,
         timeLeft: action.time,
@@ -24,10 +19,9 @@ export default (state = initialState, action) => {
         runningTimer: false
       };
     case 'UPDATE_TIMER':
-      return {
-        ...state,
-        timeLeft: action.time
-      };
+    return Object.assign({}, state, {
+      timeLeft: state.timeLeft - 1
+    });
     default:
       return state;
    }
